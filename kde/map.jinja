@@ -1,0 +1,14 @@
+{% set kde = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': 'task-kde-desktop',
+  },
+  'Ubuntu': {
+    'pkg': 'kubuntu-desktop',
+  },
+  'RedHat': {
+    'pkg': 'kde-desktop',
+  },
+  'Arch': {
+    'pkg': 'kde-meta',
+  },
+}, merge=salt['pillar.get']('kde:lookup')) %}
